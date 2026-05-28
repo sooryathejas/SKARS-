@@ -1,83 +1,125 @@
-Skars PDF Utility
+# SKARS V2.0.0
 
-A lightweight, portable Windows application for handling common PDF-related tasks.
-No Java installation required. Works entirely offline and uses very minimal system resources.
+<p align="center">
+  <img src="screenshots/SKARS_V2_0_0.png" alt="SKARS V2.0.0" width="900">
+</p>
 
-🚀 Installation
+A Windows desktop app for working with PDF files — compression, conversion, merging, extraction, rotation, and basic security tools. Everything runs locally. No uploads, no accounts, no cloud.
 
-1. Go to the Releases section of this repository.
+Built because iLovePDF is useful but I didn't want to feed my files to a website.
 
-2. Download the file:
-SKARS.zip
+---
 
-3. Extract the ZIP file anywhere you like.
+## Download
 
-4. Inside the extracted folder, run: Skars.exe
+Grab the latest release from the [Releases](../../releases) page and extract the zip. You'll get:
 
-5. The app runs directly — no installation, no dependencies, no JRE required.
+```
+SKARS-V2.0.0/
+├── SKARS-V2.0.0.exe   ← run this
+├── app/               ← app files, don't delete
+├── runtime/           ← bundled Java runtime, don't delete
+└── README.md
+```
 
-✨ Features
+Java is bundled inside the zip. You don't need to install anything.
 
-🔹 Text → PDF
+---
 
-Convert plain .txt files into clean, readable PDF documents.
+## Windows will warn you — here's how to get past it
 
-🔹 Image → PDF
+SKARS isn't signed with a paid certificate, so Windows SmartScreen will block it on first launch. It's safe to run — here's what to do:
 
-Supports JPG, JPEG, and PNG image files with automatic scaling inside the PDF.
+**SmartScreen popup ("Windows protected your PC"):**
 
-🔹 DOCX → PDF
+1. Click **More info**
+2. Click **Run anyway**
 
-Converts Microsoft Word .docx files to PDF format.
+<br>
 
-🔹 PDF Compression
+> If Windows Defender flags it as a threat, click **See details → Allow on device**. This happens because the exe is new and unrecognized, not because it's actually malicious. The source code is fully open on this repo if you want to check it yourself.
 
-Compress existing PDF files using full compression mode.
+---
 
-🔹 Open File Location
+## What it does
 
-Quickly open the output folder of the last exported PDF.
+### Compress
 
-🔹 Built-in Log/History Tab
+Four modes depending on what you're working with:
 
-Displays:
+| Mode | Use it when |
+|---|---|
+| **Lossless** | The PDF is already clean and you just want it slightly smaller without any quality loss |
+| **Balanced** | General use — good middle ground between size and readability |
+| **Small Size** | You need to hit an upload or email size limit |
+| **Aggressive Scan** | The PDF is a scan or image-heavy — goes hard on recompression, supports color, grayscale, or B&W output |
 
-All successful conversions
+<p align="center">
+  <img src="screenshots/file_compression.png" alt="File picker during compression" width="900">
+</p>
 
-Output paths
+<p align="center">
+  <img src="screenshots/file_proccessing.png" alt="Compression in progress" width="900">
+</p>
 
-Any error messages (if they occur)
+---
 
+### Convert to PDF
 
-This helps users track all operations done in the session.
+<p align="center">
+  <img src="screenshots/file_conversion.png" alt="Conversion center" width="900">
+</p>
 
+Supported input formats:
 
-🖥️ System Requirements
+- Images (JPG, PNG, etc.)
+- Text files — plain TXT, Markdown, CSV, logs
+- DOCX
+- HTML
+- Code files (with line numbers)
+- PPTX
 
-Windows OS (64-bit recommended)
+DOCX conversion tries engines in this order: LibreOffice → Microsoft Word (if installed) → docx4j → built-in fallback. Fidelity depends on which one ends up running, but LibreOffice gives the best results.
 
-No Java required
+---
 
-No internet connection needed
+### PDF tools
 
-Minimal CPU & RAM usage
+- **Merge** — combine multiple PDFs into one
+- **Extract pages** — pull out a range of pages into a separate file
+- **Rotate** — rotate all pages in a PDF
+- **Unlock** — create a decrypted copy when you know the password
+- **Protect** — add an open password to a PDF
 
+Note: SKARS only unlocks PDFs when you already know the password. It does not crack or brute-force anything.
 
-📝 How It Works
+---
 
-The application is fully local:
+## Project layout
 
-Files are processed on your device
+```
+src/main/java/dev/sooryathejas/skars
+├── SkarsApp.java
+├── service/      ← PDF, conversion, compression, and security logic
+├── ui/           ← Swing desktop UI
+└── util/         ← Shared file and PDF helpers
+```
 
-No data is uploaded anywhere
+---
 
-Works even without network access
+## Privacy
 
+All processing happens on your machine. No file ever leaves your computer. No account needed, no telemetry, no cloud API calls for core features.
 
-📦 Included in the ZIP
+---
 
-Skars.exe — main executable
+## Support
 
-Necessary resource files
+If SKARS saves you time, you can support it here:
 
--Soorya Thejas
+- [GitHub Sponsors](https://github.com/sponsors/sooryathejas)
+- [PayPal](https://www.paypal.com/paypalme/SooryaThejas)
+
+---
+
+Built by [Soorya Thejas](https://github.com/sooryathejas)
