@@ -1,7 +1,7 @@
 # SKARS V2.0.0
 
 <p align="center">
-  <img src="screenshots/SKARS_V2_0_0.png" alt="SKARS V2.0.0" width="900">
+  <img src="screenshots/SKARS V2.0.0.png" alt="SKARS V2.0.0" width="900">
 </p>
 
 A Windows desktop app for working with PDF files — compression, conversion, merging, extraction, rotation, and basic security tools. Everything runs locally. No uploads, no accounts, no cloud.
@@ -55,11 +55,11 @@ Four modes depending on what you're working with:
 | **Aggressive Scan** | The PDF is a scan or image-heavy — goes hard on recompression, supports color, grayscale, or B&W output |
 
 <p align="center">
-  <img src="screenshots/file_compression.png" alt="File picker during compression" width="900">
+  <img src="screenshots/file compression.png" alt="File picker during compression" width="900">
 </p>
 
 <p align="center">
-  <img src="screenshots/file_proccessing.png" alt="Compression in progress" width="900">
+  <img src="screenshots/file proccessing.png" alt="Compression in progress" width="900">
 </p>
 
 ---
@@ -67,7 +67,7 @@ Four modes depending on what you're working with:
 ### Convert to PDF
 
 <p align="center">
-  <img src="screenshots/file_conversion.png" alt="Conversion center" width="900">
+  <img src="screenshots/file conversion.png" alt="Conversion center" width="900">
 </p>
 
 Supported input formats:
